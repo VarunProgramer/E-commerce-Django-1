@@ -1,0 +1,28 @@
+nav{
+    background-color: #182C61;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+}
+.logo a{
+    color:#1B9CFC;
+}
+.link ul li{
+    list-style: none;
+    display: inline;
+    margin: 0 10px;
+    font-size: 1.1rem;
+}
+.link ul li a{
+    color: #FFF;
+}
+.link ul li a:hover{
+    color: #25CCF7;
+    transition: .5s linear;
+    text-decoration: underline;
+}
+@media only screen and (max-device-width: 600px) {
+    
+}

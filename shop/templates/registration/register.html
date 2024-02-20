@@ -1,0 +1,47 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}REGISTER{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block candent %}
+    <div class="register_box">
+        <div class="r_title">
+            <h2>REGISTER</h2>
+            {% include 'include/message.html' %}
+        </div>
+        <div class="register_form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input_box">
+                    <label for="username">Name : </label><br>
+                    <div class="input">{{form.username}}</div>
+                </div>
+                <div class="input_box">
+                    <label for="email">Email : </label><br>
+                    <div class="input">{{form.email}}</div>
+                </div>
+                <div class="input_box">
+                    <label for="password1">Password : </label><br>
+                    <div class="input">{{form.password1}}</div>
+                </div>
+                <div class="input_box">
+                    <label for="password2">Conform Password : </label><br>
+                    <div class="input">{{form.password2}}</div>
+                </div>
+                <div class="error">
+                    {{form.errors.username}}
+                    {{form.errors.email}}
+                    {{form.errors.password1}}
+                    {{form.errors.password2}}
+                </div>
+                <div class="btn">
+                    <p>i already have a account <a href="/login">here!</a></p>
+                    <button type="submit" class="BTN">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}HOME{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block candent %}
+    <div class="slider">
+        <img src="{% static 'images/slide.jpg' %}" alt="slide">
+    </div>
+    <div class="i_container">
+        {% include 'include/message.html' %}
+        <div class="i_title">
+            <h2>{{name}} Products</h2>
+        </div>
+        <div class="i_cart">
+            {% for product in product %}
+            <div class="cart">
+                <div class="img">
+                    <a href="/collections/{{product.category.name}}/{{product.name}}"><img src="{{product.image.url}}" alt="{{product.name}} image"></a>
+                </div>
+                <div class="c_details">
+                    <h3>{{product.name}}</h3>
+                    <p>venter : <b>{{product.venter}}</b></p>
+                    <div class="price">
+                        <a href="/collections/{{product.category.name}}/{{product.name}}">
+                            <b class="Original_price">Rs.<s>{{product.Original_price}}</s></b>
+                            <b class="shelling_price">Rs.{{product.shelling_price}}</b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty">
+                <div class="i_empty">
+                    <h2>there is no HOT product updated</h2>
+                    <P>sorry for this :(</P>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}PRODUCT LIST{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/product_list1.css' %}">
+{% endblock %}
+
+{% block candent %}
+    <div class="collection_box">
+        <div class="c_title">
+            <h2>{{name}} Products</h2>
+            {% include 'include/message.html' %}
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/collections">Collection</a></li>
+                <li><a href="#" class="active">{{name}}</a></li>
+            </ul>
+        </div>
+        <div class="c_container">
+            {% for item in items %}
+            <div class="cart">
+                <div class="img">
+                    <a href="/collections/{{name}}/{{item.name}}"><img src="{{item.image.url}}" alt="{{item.name}} image"></a>
+                </div>
+                <div class="c_details">
+                    <h3>{{item.name}}</h3>
+                    <p>venter : <b>{{item.venter}}</b></p>
+                    <div class="price">
+                        <a href="/collections/{{name}}/{{item.name}}">
+                            <b class="Original_price">Rs.<s>{{item.Original_price}}</s></b>
+                            <b class="shelling_price">Rs.{{item.shelling_price}}</b>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty">
+                <div class="c_empty">
+                    <h2>there is no product updated</h2>
+                    <P>sorry for this :(</P>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+.msg{
+    background-color: rgba(35, 146, 225, 0.5);
+    width: 90vw;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.msg_BTN{
+    background-color: rgba(35, 146, 225, 0.5);
+    font-size: 1.2rem;
+    transition: .5s linear;
+    height: 50px;
+    width: 50px;
+}
+.msg_BTN:hover{
+    background-color: rgb(35, 146, 225,);
+}

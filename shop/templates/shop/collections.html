@@ -1,0 +1,37 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}COLLECTIONS{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/collections1.css' %}">
+{% endblock %}
+
+{% block candent %}
+    <div class="collection_box">
+        <div class="c_title">
+            <h2>collections</h2>
+            {% include 'include/message.html' %}
+        </div>
+        <div class="c_container">
+            {% for item in items %}
+            <div class="cart">
+                <div class="img">
+                    <a href="/collections/{{item.name}}"><img src="{{item.image.url}}" alt="{{item.name}} image"></a>
+                </div>
+                <div class="c_details">
+                    <h3>{{item.name}}</h3>
+                    <p>{{item.description}}</p>
+                    <a href="/collections/{{item.name}}" class="BTN">View More</a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty">
+                <div class="c_empty">
+                    <h2>there is no product updated</h2>
+                    <P>sorry for this :(</P>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

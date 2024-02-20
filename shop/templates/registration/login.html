@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}LOGIN{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/login2.css' %}">
+{% endblock %}
+
+{% block candent %}
+    <div class="login_box">
+        <div class="l_title">
+            <h2>LOGIN</h2>
+            {% include 'include/message.html' %}
+        </div>
+        <div class="login_form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input_box">
+                    <label for="username">Name : </label><br>
+                    <div class="input">{{form.username}}</div>
+                </div>
+                <div class="input_box">
+                    <label for="password1">Password : </label><br>
+                    <div class="input">{{form.password}}</div>
+                </div>
+                <div class="error">
+
+                </div>
+                <div class="btn">
+                    <p>i don't have a account <a href="/register">here!</a></p>
+                    <button type="submit" class="BTN">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

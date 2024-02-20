@@ -1,0 +1,8 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/msg.css' %}">
+{% for msg in messages %}
+<div class="msg alert alert-info alert-dismissible fade show" role="alert">
+    {{msg}}
+    <button type="button" class="msg_BTN" data-bs-dismiss="alert" aria-label="close"><i class="fa fa-close"></i></button>
+</div>
+{% endfor %}

@@ -1,0 +1,48 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}CART{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block candent %}
+<div class="cart_box">
+    <div class="ca_title">
+        <h2>CART</h2>
+        {% include 'include/message.html' %}
+    </div>
+    <div class="ca_container">
+        <div class="ca_info">
+            {% for idem in cart %}
+            <div class="cart">
+                <div class="img">
+                    <img src="{{idem.Product.image.url}}" alt="{{idem.Product.name}}">
+                </div>
+                <div class="cart_detail">
+                    <div class="detail">
+                        <h3>{{idem.Product.name}}</h3>
+                        <p>quantity : {{idem.Product_qty}}</p>
+                    </div>
+                    <div class="BTN_box2">
+                        <a href="/ca_delete/{{idem.id}}"><button class="BTN BTN_c">Cancel</button></a>
+                        <a href="#"><button class="BTN">Bay</button></a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty">
+                <div class="c_empty">
+                    <h2>there is no product in cart</h2>
+                    <P>sorry for this :(</P>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="BTN_box">
+            <button class="BTN BTN_c">Cancel All</button>
+            <button class="BTN">Bay All</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

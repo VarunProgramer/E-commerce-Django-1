@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+
+<nav>
+    <div class="logo">
+        <a href="/index"><h1>SHAPING</h1></a>
+    </div>
+    <div class="link">
+        <ul>
+            <li><a href="/index"><i class="fa fa-home"></i> home</a></li>
+            <li><a href="/collections"><i class="fa fa-cubes"></i> Collections</a></li>
+            <li><a href="/cart"><i class="fa fa-shopping-cart"></i> cart</a></li>
+            <li><a href="/register"><i class="fa fa-users"></i> Register</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="#"><i class="fa fa-user"></i> {{request.user}}</a></li>
+                <li><a href="/logout"><i class="fa fa-sign-in"></i> Logout</a></li>
+            {% else %}
+                <li><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

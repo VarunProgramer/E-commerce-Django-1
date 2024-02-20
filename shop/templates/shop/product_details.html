@@ -1,0 +1,57 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}PRODUCT DETAILS{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/product_details2.css' %}">
+{% endblock %}
+
+{% block candent %}
+    <div class="product_box">
+        <div class="p_title">
+            <h2>{{pname}} | {{cname}}</h2>
+            {% include 'include/message.html' %}
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/collections">Collection</a></li>
+                <li><a href="/collections/{{cname}}">{{cname}}</a></li>
+                <li><a href="#" class="active">{{pname}}</a></li>
+            </ul>
+        </div>
+        <div class="p_container">
+            <div class="img">
+                {% if product.trending %}
+                    <div class="trending">
+                        <b>HOT</b>
+                    </div>
+                {% endif %}
+                <img src="{{product.image.url}}" alt="">
+            </div>
+            <div class="p_details">
+                <h2>{{product.name | upper}}</h2>
+                <b>{{product.venter}}</b>
+                <p class="description">{{product.description}}</p>
+                <p>Correct price : RS.<s>{{product.Original_price}}</s></p>
+                <h4>Offer price : Rs.{{product.shelling_price}}</h4>
+                <div class="c_BTN">
+                    {% if product.quantity > 0 %}
+                    <p>
+                        <div class="input_group">
+                            <button class="btnMinus qtybtn" id="btnMinus"><i class="fa fa-minus"></i></button>
+                            <input type="text" name="qty" id="txtQty" value="1" class="quantity">
+                            <button class="btnplus qtybtn" id="btnplus"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </p>
+                    <button data-product="{{product.id}}" data-action="add" class="fa fa-shopping-cart BTN_Add p_BTN" id="btnCart">  Add to Cart</button>
+                    {% else %}
+                    <a href="#" style="background-color: rgb(135, 135, 135);" class="fa fa-minus p_BTN">  Out of stack</a>
+                    {% endif %}
+                    <a href="#"><i class="fa fa-heart BTN_heart p_BTN"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/cart1.js' %}"></script>
+{% endblock %}

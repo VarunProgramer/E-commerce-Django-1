@@ -1,0 +1,25 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.BTN{
+    background-color: #1B9CFC;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 10px;
+    font-weight: bold;
+    color: #FFF;
+    border: 2px solid #1B9CFC;
+    transition: .5s linear;
+}
+.BTN:hover{
+    background-color: #FFF;
+    border: 2px solid black;
+    color: black;
+
+}
